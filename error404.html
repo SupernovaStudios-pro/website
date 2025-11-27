@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SUPERNOVA STUDIOS • Error</title>
+    <meta name="description" content="Aiming higher - At Supernova Studios, we create universes for everyone.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @font-face {
+            font-family: 'Subwich';
+            src: url('Subwich.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a; 
+            color: #e5e5e5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header, footer {
+            background-color: #0a0a0a;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        footer {
+            font-family: 'Subwich', sans-serif;
+        }
+
+        .logo-header {
+            max-width: 25%;
+            cursor: pointer;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .error-code {
+            font-family: 'Subwich', sans-serif;
+            font-size: 6rem;
+            line-height: 1;
+        }
+
+        .home-link {
+            font-size: 1.25rem;
+            color: #9ca3af;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .home-link:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="flex flex-col items-center py-4">
+		<a href="index.html" class="flex justify-center w-full">
+			<img src="logo.png" alt="Supernova Studios" class="logo-header">
+		</a>
+		<p class="mt-2 text-sm text-gray-400">Aiming Higher</p>
+	</header>
+
+    <main>
+        <div>
+            <h1 class="error-code mb-6">Error 404</h1>
+            <h2 class="text-3xl font-bold mb-4">Page not found</h2>
+            <a href="index.html" class="home-link">Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <p class="mt-2 text-sm">&copy; 2025 Supernova Studios. All rights reserved.</p>
+    </footer>
+</body>
+</html>
