@@ -1,1 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AKI • SUPERNOVA STUDIOS</title>
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<meta name="description" content="AKI, Zombie Survival Sandbox game by Supernova Studios.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						primary: "#0a0a0a",
+						secondary: "#1a1a1a",
+						accent: "#dc2626",
+						text: "#e5e5e5",
+						muted: "#a3a3a3"
+					},
+					fontFamily: {
+						'sans': ['Inter', 'system-ui', 'sans-serif']
+					}
+				}
+			}
+		}
+	</script>
+	
+	<style>
+	
+		html, body {
+			overflow-x: hidden;
+		}
+		
+		body {
+			background-image: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.6)), url('/bcg.png');
+			background-repeat: no-repeat;
+			background-position: center top;
+			background-size: cover;
+			background-attachment: fixed;
+		}
+		
+		.logo-primary img {
+			max-width: 40%;
+			max-height: 60px;
+		}
+		
+		.logo-secondary img {
+			max-width: 30%;
+			max-height: 60px;
+		}
+		
+		.nav-link {
+		  position: relative;
+		  display: inline-block;
+		  white-space: nowrap;
+		}
+		
+		#aki-text {
+			display: inline-block;
+			transition: opacity 0.25s ease;
+		}
+		
+		@keyframes slideOutRight {
+			0% { transform: translateX(0); opacity: 1; }
+			100% { transform: translateX(150px) rotate(10deg); opacity: 0; }
+		}
+		
+		@keyframes slideToAbout {
+			0% { transform: translateX(0); }
+			100% { transform: translateX(-100px); }
+		}
+	</style>
+</head>
+
+<body class="min-h-screen bg-primary text-text font-sans">
+	<header class="fixed w-full bg-primary z-50">
+		<nav class="container mx-auto px-4 py-4">
+			<div class="flex items-center justify-between">
+				<a href="#" class="logo-primary")">
+					<img src="/logo.png" alt="Supernova Studios" />
+				</a>
+				<div class="hidden md:flex items-center space-x-8">
+					<div style="overflow:hidden">
+					  <div id="home-about-wrapper" style="display:flex; gap:2rem;">
+						<a href="#" id="nav-home" class="hover:text-accent transition-colors nav-link">Home</a>
+						<a id="nav-about" class="hover:text-accent transition-colors nav-link">About us</a>
+					  </div>
+					</div>
+					<a href="/aki" id="nav-aki" class="bg-accent hover:bg-red-700 px-4 py-2 rounded transition-colors inline-block text-center">
+						<span id="aki-text">AKI</span>
+					</a>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<section class="min-h-screen flex items-center justify-center home-bg">
+			<div class="first-section section-content container mx-auto px-4">
+				<div class="text-center mb-16">
+					<h2 class="text-3xl font-bold mb-4">AKI: Survival Games Redefined</h2>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+					<div class="bg-secondary p-6 rounded-lg hover:transform hover:scale-105 transition-all">
+						<div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-4">
+							<i class="fas fa-shield-alt text-white"></i>
+						</div>
+						<h3 class="text-xl font-semibold mb-3">Realistic Survival</h3>
+						<p class="text-muted">Manage hunger, thirst, fatigue, and injuries in a deeply simulated survival system.</p>
+					</div>
+					<div class="bg-secondary p-6 rounded-lg hover:transform hover:scale-105 transition-all">
+						<div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-4">
+							<i class="fas fa-cube text-white"></i>
+						</div>
+						<h3 class="text-xl font-semibold mb-3">Deep Sandbox</h3>
+						<p class="text-muted">Customize your experience by editing almost anything, want to disable zombies? No problem!</p>
+					</div>
+					<div class="bg-secondary p-6 rounded-lg hover:transform hover:scale-105 transition-all">
+						<div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-4">
+							<i class="fas fa-brain text-white"></i>
+						</div>
+						<h3 class="text-xl font-semibold mb-3">Advanced AI</h3>
+						<p class="text-muted">Intelligent zombie behavior and dynamic world events create a gripping experience and unpredictable challenges.</p>
+					</div>
+				</div>
+
+				<div class="bg-secondary rounded-lg p-8">
+					<h3 class="text-2xl font-bold mb-6">Our Key Features Objective</h3>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<div class="space-y-4">
+							<div class="flex items-start space-x-3">
+								<i class="fas fa-check text-accent mt-1"></i>
+								<div>
+									<h4 class="font-semibold">Solo and multiplayer experience</h4>
+									<p class="text-sm text-muted">Play solo, with friends, or even ennemies.</p>
+								</div>
+							</div>
+							<div class="flex items-start space-x-3">
+								<i class="fas fa-check text-accent mt-1"></i>
+								<div>
+									<h4 class="font-semibold">Base Building</h4>
+									<p class="text-sm text-muted">Construct and fortify your safe haven against the undead.</p>
+								</div>
+							</div>
+							<div class="flex items-start space-x-3">
+								<i class="fas fa-check text-accent mt-1"></i>
+								<div>
+									<h4 class="font-semibold">Realistic Combat</h4>
+									<p class="text-sm text-muted">Authentic weapon handling and satisfying physics-based melee combat.</p>
+								</div>
+							</div>
+						</div>
+						<div class="space-y-4">
+							<div class="flex items-start space-x-3">
+								<i class="fas fa-check text-accent mt-1"></i>
+								<div>
+									<h4 class="font-semibold">Crafting System</h4>
+									<p class="text-sm text-muted">Create tools, weapons, and supplies from scavenged materials.</p>
+								</div>
+							</div>
+							<div class="flex items-start space-x-3">
+								<i class="fas fa-check text-accent mt-1"></i>
+								<div>
+									<h4 class="font-semibold">Dynamic Experience System</h4>
+									<p class="text-sm text-muted">Improve your skills, from total newbie to expert.</p>
+								</div>
+							</div>
+							<div class="flex items-start space-x-3">
+								<i class="fas fa-check text-accent mt-1"></i>
+								<div>
+									<h4 class="font-semibold">Roleplay Ready Experience</h4>
+									<p class="text-sm text-muted">Role play as survivors and live unique experiences.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section id="media" class="py-20 bg-secondary relative">
+			<div class="section-content container mx-auto px-4">
+				<div class="text-center mb-16">
+					<h2 class="text-4xl font-bold mb-4">Media Gallery</h2>
+					<p class="text-xl text-muted">Explore the world of AKI through screenshots and concept art</p>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<div class="group relative overflow-hidden rounded-lg cursor-pointer">
+						<img src="/bcg.png" alt="AKI gameplay screenshot - abandoned city" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy"/>
+						<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+							<span class="text-white font-semibold">Abandoned City</span>
+						</div>
+					</div>
+					<div class="group relative overflow-hidden rounded-lg cursor-pointer">
+						<img src="/bcg.png" alt="AKI concept art - survivor base" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy"/>
+						<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+							<span class="text-white font-semibold">Survivor Base</span>
+						</div>
+					</div>
+					<div class="group relative overflow-hidden rounded-lg cursor-pointer">
+						<img src="/bcg.png" alt="AKI screenshot - night exploration" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy"/>
+						<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+							<span class="text-white font-semibold">Night Exploration</span>
+						</div>
+					</div>
+					<div class="group relative overflow-hidden rounded-lg cursor-pointer">
+						<img src="/bcg.png" alt="AKI concept art - zombie designs" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy"/>
+						<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+							<span class="text-white font-semibold">Zombie Designs</span>
+						</div>
+					</div>
+					<div class="group relative overflow-hidden rounded-lg cursor-pointer">
+						<img src="/bcg.png" alt="AKI gameplay - crafting system" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy"/>
+						<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+							<span class="text-white font-semibold">Crafting System</span>
+						</div>
+					</div>
+					<div class="group relative overflow-hidden rounded-lg cursor-pointer">
+						<img src="/bcg.png" alt="AKI environment - forest area" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy"/>
+						<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+							<span class="text-white font-semibold">Forest Environment</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="bg-primary border-t border-primary">
+		<div class="container mx-auto px-4 py-8">
+			<div class="flex flex-col md:flex-row justify-between items-center">
+				<div class="mb-4 md:mb-0">
+					<div class="logo-secondary">
+						<img src="/logo.png" alt="Supernova Studios" />
+					</div>
+					<p class="text-muted text-sm mt-2">Aiming Higher</p>
+				</div>
+				
+				<div class="flex space-x-6">
+					<a href="#" class="text-muted hover:text-accent transition-colors"><i class="fab fa-discord"></i></a>
+					<a href="#" class="text-muted hover:text-accent transition-colors"><i class="fab fa-youtube"></i></a>
+					<a href="#" class="text-muted hover:text-accent transition-colors"><i class="fab fa-reddit"></i></a>
+				</div>
+			</div>
+			
+			<div class="border-t border-primary mt-8 pt-8 text-center text-muted text-sm">
+				<p>&copy; 2025 Supernova Studios. All rights reserved. AKI and Supernova Studios are trademarks of Supernova Studios.</p>
+			</div>
+		</div>
+	</footer>
+	
+	<script>
+		window.addEventListener('load', () => {
+			const homeWrapper = document.getElementById('home-about-wrapper'); 
+			const aki = document.getElementById('nav-aki');
+			const firstSection = document.querySelector('.first-section');
+			const akiText = document.getElementById('aki-text');
+
+			const cameFromAKI = true;
+
+			// Masque parent
+			const maskParent = homeWrapper.parentElement;
+			maskParent.style.overflow = 'hidden';
+
+			// Section initialement hors écran
+			const windowWidth = window.innerWidth;
+			firstSection.style.transform = `translateX(${windowWidth * 2}px)`; // décalage initial
+			firstSection.style.transition = 'transform 0.8s ease-out';
+
+			const duration = cameFromAKI ? 800 : 0;
+
+			// Largeur cible fixe (celle de "Home")
+			const targetWidth = 76.83332824707031;
+			const startWidth = aki.getBoundingClientRect().width;
+
+			let start = null;
+
+			function easeOutQuad(t) { return t * (2 - t); }
+
+			function animate(timestamp) {
+				if (!start) start = timestamp;
+				const progress = duration === 0 ? 1 : Math.min((timestamp - start) / duration, 1);
+				const ease = easeOutQuad(progress);
+
+				// Section glisse dynamiquement
+				firstSection.style.transform = `translateX(${windowWidth * 4 * (1 - ease)}px)`;
+
+				// Slide Home + About
+				const maskDistance = homeWrapper.offsetWidth + 20; 
+				homeWrapper.style.transform = `translateX(${maskDistance * ease}px)`;
+
+				// Largeur AKI -> Home
+				const newWidth = startWidth + (targetWidth - startWidth) * ease;
+				aki.style.width = `${newWidth}px`;
+
+				// Fade texte
+				akiText.style.transition = 'opacity 0.25s ease';
+				akiText.style.opacity = 0;
+				setTimeout(() => {
+					akiText.textContent = 'Home';
+					akiText.style.opacity = 1;
+				}, 250);
+
+				if (progress < 1) requestAnimationFrame(animate);
+			}
+
+			requestAnimationFrame(animate);
+		});
+	</script>
+
+</body>
+
+</html>
