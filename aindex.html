@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SUPERNOVA STUDIOS</title>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta name="description" content="Aiming higher - At Supernova Studios, we create universes for everyone.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: { primary:"#0a0a0a", secondary:"#1a1a1a", accent:"#dc2626", text:"#e5e5e5", muted:"#a3a3a3" },
+      fontFamily: { 'sans':['Inter','system-ui','sans-serif'] }
+    }
+  }
+}
+</script>
+
+<style>
+body {
+  background-image: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.6)), url('/bcg.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+}
+#content-container { transition: opacity 0.5s ease; }
+.first-section { transform: translateX(150vw); transition: transform 0.8s ease-out; }
+</style>
+
+</head>
+
+<body class="min-h-screen bg-primary text-text font-sans">
+<header class="fixed w-full bg-primary z-50">
+<nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+  <a href="#" class="logo-primary"><img src="/logo.png" alt="Supernova Studios"/></a>
+  <div class="hidden md:flex items-center space-x-8">
+    <a href="#" class="hover:text-accent transition-colors" id="btn-about">About us</a>
+    <a href="/aki" id="btn-aki" class="bg-accent hover:bg-red-700 px-4 py-2 rounded inline-block text-center">AKI</a>
+  </div>
+</nav>
+</header>
+
+<main id="content-container">
+<!-- Contenu initial WIP -->
+<section id="home" class="min-h-screen flex items-center justify-center home-bg"></section>
+<section id="about" class="py-20 bg-primary relative">
+<div class="section-content container mx-auto px-4">
+<h2 class="text-4xl font-bold mb-6">About Supernova Studios</h2>
+<p class="text-lg text-muted mb-6">Founded by real gamers...</p>
+</div>
+</section>
+</main>
+
+<footer class="bg-primary border-t border-primary">
+<div class="container mx-auto px-4 py-8 text-center text-muted text-sm">&copy; 2025 Supernova Studios</div>
+</footer>
+
+<script>
+// Fonction de chargement dynamique du contenu SPA
+async function loadPage(url, animate = false) {
+  const container = document.getElementById('content-container');
+  const response = await fetch(url);
+  const htmlText = await response.text();
+
+  // Créer un DOM temporaire pour récupérer le body
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlText, 'text/html');
+  const bodyContent = doc.querySelector('main').innerHTML;
+
+  container.style.opacity = 0;
+  setTimeout(() => {
+    container.innerHTML = bodyContent;
+    container.style.opacity = 1;
+
+    if(animate) {
+      const firstSection = container.querySelector('.first-section');
+      if(firstSection) firstSection.style.transform = 'translateX(0)';
+    }
+  }, 200);
+
+  // Mettre à jour l'URL sans recharger
+  history.pushState({}, "", url);
+}
+
+// Clic sur bouton AKI
+document.getElementById('btn-aki').addEventListener('click', e => {
+  e.preventDefault();
+  loadPage('/aki', true);
+});
+
+// Clic sur bouton About (SPA)
+document.getElementById('btn-about').addEventListener('click', e => {
+  e.preventDefault();
+  loadPage('/wip', false);
+});
+
+// Gestion navigation back/forward
+window.addEventListener('popstate', () => {
+  loadPage(location.pathname, false);
+});
+</script>
+
+</body>
+</html>
