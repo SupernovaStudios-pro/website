@@ -59,19 +59,14 @@
 		  white-space: nowrap;
 		}
 		
+		.first-section {
+			transform: translateX(150vw);
+			transition: transform 0.8s ease-out;
+		}
+		
 		#aki-text {
 			display: inline-block;
 			transition: opacity 0.25s ease;
-		}
-		
-		@keyframes slideOutRight {
-			0% { transform: translateX(0); opacity: 1; }
-			100% { transform: translateX(150px) rotate(10deg); opacity: 0; }
-		}
-		
-		@keyframes slideToAbout {
-			0% { transform: translateX(0); }
-			100% { transform: translateX(-100px); }
 		}
 	</style>
 </head>
@@ -80,15 +75,12 @@
 	<header class="fixed w-full bg-primary z-50">
 		<nav class="container mx-auto px-4 py-4">
 			<div class="flex items-center justify-between">
-				<a href="/wip" class="logo-primary")">
+				<a href="#" class="logo-primary")">
 					<img src="/logo.png" alt="Supernova Studios" />
 				</a>
 				<div class="hidden md:flex items-center space-x-8">
 					<div style="overflow:hidden">
-					  <div id="home-about-wrapper" style="display:flex; gap:2rem;">
-						<a href="#" id="nav-home" class="hover:text-accent transition-colors nav-link">Home</a>
 						<a id="nav-about" class="hover:text-accent transition-colors nav-link">About us</a>
-					  </div>
 					</div>
 					<a href="/wip" id="nav-aki" class="bg-accent hover:bg-red-700 px-4 py-2 rounded transition-colors inline-block text-center">
 						<span id="aki-text">AKI</span>
@@ -257,7 +249,7 @@
 	
 	<script>
 		window.addEventListener('load', () => {
-			const homeWrapper = document.getElementById('home-about-wrapper'); 
+			const auButton = document.getElementById('nav-about'); 
 			const aki = document.getElementById('nav-aki');
 			const firstSection = document.querySelector('.first-section');
 			const akiText = document.getElementById('aki-text');
@@ -265,13 +257,8 @@
 			const cameFromAKI = true;
 
 			// Masque parent
-			const maskParent = homeWrapper.parentElement;
+			const maskParent = auButton.parentElement;
 			maskParent.style.overflow = 'hidden';
-
-			// Section initialement hors écran
-			const windowWidth = window.innerWidth;
-			firstSection.style.transform = `translateX(${windowWidth * 2}px)`; // décalage initial
-			firstSection.style.transition = 'transform 0.8s ease-out';
 
 			const duration = cameFromAKI ? 800 : 0;
 
@@ -288,18 +275,14 @@
 				const progress = duration === 0 ? 1 : Math.min((timestamp - start) / duration, 1);
 				const ease = easeOutQuad(progress);
 
-				// Section glisse dynamiquement
-				firstSection.style.transform = `translateX(${windowWidth * 4 * (1 - ease)}px)`;
+				firstSection.style.transform = `translateX(0)`;
 
-				// Slide Home + About
-				const maskDistance = homeWrapper.offsetWidth + 20; 
-				homeWrapper.style.transform = `translateX(${maskDistance * ease}px)`;
+				const maskDistance = auButton.offsetWidth + 20; 
+				auButton.style.transform = `translateX(${maskDistance * ease}px)`;
 
-				// Largeur AKI -> Home
 				const newWidth = startWidth + (targetWidth - startWidth) * ease;
 				aki.style.width = `${newWidth}px`;
 
-				// Fade texte
 				akiText.style.transition = 'opacity 0.25s ease';
 				akiText.style.opacity = 0;
 				setTimeout(() => {
